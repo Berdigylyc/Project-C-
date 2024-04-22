@@ -13,9 +13,9 @@ int main()
 
     //BlocksField blocksField(sf::Vector2f(512.f, 150.f), sf::Vector2f(0.f, 0.f), sf::Color::Yellow, 11, 6);
     //BlocksField blocksField(sf::Vector2f(20.f, 50.f), sf::Vector2f(200.f, 50.f), sf::Color::Yellow, 0, 0);
-    BlocksField blocksField(sf::Vector2f(GlobalObjects::windowWidth, 200.f), sf::Vector2f(0.f, 0.f), sf::Color::Cyan, 9, 7);
+    BlocksField blocksField(sf::Vector2f(GlobalObjects::windowWidth, 200.f), sf::Vector2f(0.f, 0.f), sf::Color::Cyan, 9, 6);
 
-    //Game::createBall(Ball(10.f, sf::Vector2f(300.f, 400.f), sf::Color::Red, 50.f));
+    //Game::createBall(Ball(10.f, sf::Vector2f(300.f, 400.f), sf::Color::Red, 50.f,50.f));
     Game::createBall(Ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f));
 
     //Paddle paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Green, 200.f);

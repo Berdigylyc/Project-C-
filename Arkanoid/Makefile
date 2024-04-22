@@ -2,7 +2,7 @@ CC=g++
 CFLAGS=-std=c++17 -O2
 
 clean: 
-	rm *.o Arkanoid
+	rm *.o Arkanoid ../*.hpp.gch
 
 install:
 	install ./Arkanoid /usr/local/bin
@@ -11,7 +11,7 @@ uninstall:
 	rm /usr/local/bin/Arkanoid
 	
 Generate_Libraries:
-	g++ -c ./DoNotTouch/*.cpp ./DoNotTouch/*.hpp
+	g++ -c ../*.cpp ../*.hpp
 	
 	
 all: Generate_Libraries

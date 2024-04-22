@@ -1,4 +1,5 @@
 #include "Ball.hpp"
+float k = 1.0;
 Ball::Ball(float radius, const sf::Vector2f & position, const sf::Color & color, float speed, float angle)
 {
     circle.setRadius(radius);
@@ -12,8 +13,8 @@ Ball::Ball(float radius, const sf::Vector2f & position, const sf::Color & color,
 
 void Ball::setAngle(float angle)
 {
-    velocity.x = speed * std::cos(angle * M_PI / 180);
-    velocity.y = -speed * std::sin(angle * M_PI / 180);
+    velocity.x = k*speed * std::cos(angle * M_PI / 180);
+    velocity.y = -k*speed * std::sin(angle * M_PI / 180);
 }
 float Ball::getAngle()
 {
@@ -35,10 +36,12 @@ bool Ball::checkColission(const Block & block)
             if (getX() < block.left() || getX() > block.rigth())
             {
                 velocity.x *= -1;
+                k*1.01;
             }
             else
             {
                 velocity.y *= -1;
+                k*1.01;
             }
             return true;
         }
@@ -97,6 +100,7 @@ bool Ball::checkColission(const Paddle & paddle)
         float angle = minAngle - (minAngle - maxAngle) * percantage;
         setAngle(angle);*/
 
+        k*=1.01;
         float deviation = 50.f;
         bool leftSide = getX() < paddle.getPosition().x;
         float distanceFromCenter = std::abs(getX() - paddle.getPosition().x);
@@ -112,12 +116,18 @@ bool Ball::checkColission(const Paddle & paddle)
 void Ball::Update(float deltaTime)
 {
     circle.move(velocity * deltaTime);
-    if (left() <= 0.f)
+    if (left() <= 0.f){
         velocity.x = -velocity.x;
-    if (rigth() >= GlobalObjects::windowWidth)
+        k*=1.01;
+    }
+    if (rigth() >= GlobalObjects::windowWidth){
         velocity.x = -velocity.x;
-    if (top() <= 0.f)
+        k*=1.01;
+    }
+    if (top() <= 0.f){
         velocity.y = -velocity.y;
+        k*=1.01;
+    }
 }
 
 void Ball::Draw(sf::RenderWindow & window)
