@@ -17,6 +17,7 @@ int main()
 
     //Game::createBall(Ball(10.f, sf::Vector2f(300.f, 400.f), sf::Color::Red, 50.f,50.f));
     Game::createBall(Ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f));
+    //Ball ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f);
 
     //Paddle paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Green, 200.f);
     Game::createPaddle(Paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Magenta, 200.f));
@@ -30,6 +31,23 @@ int main()
             if (event.type == sf::Event::Closed)
                 GlobalObjects::window.close();
         }
+        if (!Game::Update(deltaTime,blocksField)){
+                GlobalObjects::window.close();
+
+        }
+        /*if (!(54-Game::Exist())){
+                GlobalObjects::window.close();
+        }*/
+        /*if (ball.getY()>500)
+            switch(event.type) {
+            case sf::Event::Closed:
+                GlobalObjects::window.close();
+                break;
+            case sf::Event::KeyPressed:
+                //...
+                break;
+}*/
+
 
 
         Game::Update(deltaTime, blocksField);

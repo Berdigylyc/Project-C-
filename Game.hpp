@@ -16,6 +16,7 @@ public:
     static void createPaddle(const Paddle & padd) { paddle = new Paddle(padd); }
     static bool Update(float deltaTime, BlocksField & blocksField);
     static void Draw(sf::RenderWindow & window);
+    //static int Exist(){return(ball->Exist());}
 };
 
 #endif // GAME_HPP_

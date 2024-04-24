@@ -9,6 +9,7 @@ Ball::Ball(float radius, const sf::Vector2f & position, const sf::Color & color,
 
     this->speed = speed;
     setAngle(angle);
+    //exx=0;
 }
 
 void Ball::setAngle(float angle)
@@ -37,11 +38,13 @@ bool Ball::checkColission(const Block & block)
             {
                 velocity.x *= -1;
                 k*1.01;
+                //Ball::Plus();
             }
             else
             {
                 velocity.y *= -1;
                 k*1.01;
+                //Ball::Plus();
             }
             return true;
         }
@@ -118,15 +121,12 @@ void Ball::Update(float deltaTime)
     circle.move(velocity * deltaTime);
     if (left() <= 0.f){
         velocity.x = -velocity.x;
-        k*=1.01;
     }
     if (rigth() >= GlobalObjects::windowWidth){
         velocity.x = -velocity.x;
-        k*=1.01;
     }
     if (top() <= 0.f){
         velocity.y = -velocity.y;
-        k*=1.01;
     }
 }
 
@@ -134,3 +134,4 @@ void Ball::Draw(sf::RenderWindow & window)
 {
     window.draw(circle);
 }
+

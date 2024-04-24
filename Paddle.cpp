@@ -12,9 +12,9 @@ Paddle::Paddle(const sf::Vector2f & size, const sf::Vector2f & position, const s
 
 void Paddle::Update(float deltaTime)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && paddle.getPosition().x > 0.f)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && paddle.getPosition().x > 0.f+paddle.getSize().x / 2.f)
         paddle.move(-speed * deltaTime, 0.f);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && paddle.getPosition().x < GlobalObjects::windowWidth)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && paddle.getPosition().x < GlobalObjects::windowWidth-paddle.getSize().x / 2.f)
         paddle.move(speed * deltaTime, 0.f);
 }
 
