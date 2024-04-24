@@ -8,57 +8,38 @@
 
 int main()
 {
-    sf::Event event;
-    sf::Clock clock;
-    float deltaTime;
+	int a{0},b{0};
+	a = 2;  //width
+	b = 3;  //length
+    	sf::Event event;
+    	sf::Clock clock;
+    	float deltaTime;
 
-    //BlocksField blocksField(sf::Vector2f(512.f, 150.f), sf::Vector2f(0.f, 0.f), sf::Color::Yellow, 11, 6);
-    //BlocksField blocksField(sf::Vector2f(20.f, 50.f), sf::Vector2f(200.f, 50.f), sf::Color::Yellow, 0, 0);
-    BlocksField blocksField(sf::Vector2f(GlobalObjects::windowWidth, 200.f), sf::Vector2f(0.f, 0.f), sf::Color::Cyan, 2, 3);
+    	BlocksField blocksField(sf::Vector2f(GlobalObjects::windowWidth, 200.f), sf::Vector2f(0.f, 0.f), sf::Color::Cyan, a, b);
 
-    //Game::createBall(Ball(10.f, sf::Vector2f(300.f, 400.f), sf::Color::Red, 50.f,50.f));
-    Game::createBall(Ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f));
-    //Ball ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f);
+    	Game::createBall(Ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f));
 
-    //Paddle paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Green, 200.f);
-    Game::createPaddle(Paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Magenta, 200.f));
+    	Game::createPaddle(Paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Magenta, 200.f));
 
-    while (GlobalObjects::window.isOpen())
-    {
-        deltaTime = clock.restart().asSeconds();
-
-        while (GlobalObjects::window.pollEvent(event))
+    	while (GlobalObjects::window.isOpen())
         {
-            if (event.type == sf::Event::Closed)
+        	deltaTime = clock.restart().asSeconds();
+
+        	while (GlobalObjects::window.pollEvent(event))
+        	{
+            		if (event.type == sf::Event::Closed)
+                	GlobalObjects::window.close();
+        	}
+        	if (!Game::Update(deltaTime,blocksField)){
                 GlobalObjects::window.close();
+
+        	}
+
+        if (a*b-Game::Exist() == 0)
+        {
+        	std::cout<<"\a\a\a\a\a\n\n===============================================================\n\nCongratulations ! You are the first person who won the game :)\n\n===============================================================\n"<<std::endl;
+            return 0;
         }
-        if (!Game::Update(deltaTime,blocksField)){
-                GlobalObjects::window.close();
-
-        }
-        /*if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
-                delete blocksField;
-                BlocksField blocksField(sf::Vector2f(GlobalObjects::windowWidth, 200.f), sf::Vector2f(0.f, 0.f), sf::Color::Cyan, 9, 6);
-                Game::createBall(Ball(10.f, sf::Vector2f(225.0710f, 400.f), sf::Color::White, 180.f, 110.f));
-                Game::createPaddle(Paddle(sf::Vector2f(100.f, 10.f), sf::Vector2f(256.f, 450.f), sf::Color::Magenta, 200.f));
-
-            }*/
-        if (6-Game::Exist() == 0){
-                return 0;
-        }
-
-        //std::cout<<Ball::Exist(0)<<std::endl;
-        /*if (ball.getY()>500)
-            switch(event.type) {
-            case sf::Event::Closed:
-                GlobalObjects::window.close();
-                break;
-            case sf::Event::KeyPressed:
-                //...
-                break;
-}*/
-
-
 
         Game::Update(deltaTime, blocksField);
 
