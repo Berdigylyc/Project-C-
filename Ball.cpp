@@ -9,7 +9,7 @@ Ball::Ball(float radius, const sf::Vector2f & position, const sf::Color & color,
 
     this->speed = speed;
     setAngle(angle);
-    //exx=0;
+    exx=0;
 }
 
 void Ball::setAngle(float angle)
@@ -38,13 +38,13 @@ bool Ball::checkColission(const Block & block)
             {
                 velocity.x *= -1;
                 k*1.01;
-                //Ball::Plus();
+                Ball::Plus();
             }
             else
             {
                 velocity.y *= -1;
                 k*1.01;
-                //Ball::Plus();
+                Ball::Plus();
             }
             return true;
         }

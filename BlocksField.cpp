@@ -11,7 +11,7 @@ BlocksField::BlocksField(const sf::Vector2f & size, const sf::Vector2f & positio
             blocks.push_back(Block(blockSize - sf::Vector2f(4.f, 4.f), position + sf::Vector2f(blockSize.x * i + 2.f, blockSize.y * j + 2.f), color));
         }
     }
-exist = columns*rows;
+//exist = columns*rows;
 }
 
 void BlocksField::Update(Ball & ball)

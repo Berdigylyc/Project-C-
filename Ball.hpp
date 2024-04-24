@@ -15,7 +15,7 @@ private:
 
     void setAngle(float ang);
     float getAngle();
-    //int exx;
+    int exx;
 
 public:
     Ball(float radius, const sf::Vector2f & position, const sf::Color & color, float speed, float angle);
@@ -39,8 +39,8 @@ public:
     float getRadius() const { return circle.getRadius(); }
     sf::Vector2f getVelocity() const {return velocity; }
 
-    /*void Plus(){exx-=1;}
-    int Exist(){return(exx);}*/
+    void Plus(){exx+=1;}
+    int Exist(){return exx;}
 };
 
 #endif // BALL_HPP_
