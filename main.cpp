@@ -9,8 +9,8 @@
 int main()
 {
 	int a{0},b{0};
-	a = 2;  //width
-	b = 3;  //length
+	a = 9;  //width
+	b = 6;  //length
     	sf::Event event;
     	sf::Clock clock;
     	float deltaTime;
@@ -31,7 +31,7 @@ int main()
                 	GlobalObjects::window.close();
         	}
         	if (!Game::Update(deltaTime,blocksField)){
-                GlobalObjects::window.close();
+                return 0;
 
         	}
 

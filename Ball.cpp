@@ -56,13 +56,17 @@ bool Ball::checkColission(const Block & block)
         sf::Vector2f corner;
 
         if      ( distance(getPosition(), sf::Vector2f(block.left() , block.top())   ) <= getRadius() )
-            corner = sf::Vector2f(block.left(), block.top());
+            {corner = sf::Vector2f(block.left(), block.top());
+            Ball::Plus();}
         else if ( distance(getPosition(), sf::Vector2f(block.left() , block.bottom())) <= getRadius() )
-            corner = sf::Vector2f(block.left(), block.bottom());
+            {corner = sf::Vector2f(block.left(), block.bottom());
+            Ball::Plus();}
         else if ( distance(getPosition(), sf::Vector2f(block.rigth(), block.top())   ) <= getRadius() )
-            corner = sf::Vector2f(block.rigth(), block.top());
+            {corner = sf::Vector2f(block.rigth(), block.top());
+            Ball::Plus();}
         else if ( distance(getPosition(), sf::Vector2f(block.rigth(), block.bottom())) <= getRadius() )
-            corner = sf::Vector2f(block.rigth(), block.bottom());
+            {corner = sf::Vector2f(block.rigth(), block.bottom());
+            Ball::Plus();}
         else
             return false;
 
